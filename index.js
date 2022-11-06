@@ -195,12 +195,20 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-//
+// make error handle
+// make variable bucket
+// make loop
+// turn gengre to lower case because case sensitive
+// check if it matches
+// return if matches
 function filterByGenre(movies, genre) {
   let matches = [] 
+  if (movies.length === 0){
+    return []
+  }
   for (let i = 0; i < movies.length; i++){
-    if (movies[i].genre === genre){
-      matches.push()
+    if (movies[i].genre.toLowerCase().includes(genre.toLowerCase())){
+      matches.push(movies[i])
     }
   }
   return matches
@@ -261,16 +269,17 @@ function getBiggestBoxOfficeMovie(movies) {
   if (movies.length === 0){
     return null
   }
-  // let highest = 0;
-  // let title = ""
-  // let new = 
-  // for (let i = 0; i < movies.length; i++) { 
-  //    new =  Number(movies[i].boxOffice.slice(0).split(",").join(""))
-  //  if ( new > highest) {
-  //   title = movies[i].title 
-  //   }
-  // }
-  // return title
+  let highest = 0;
+  let title = ""
+
+  for (let i = 0; i < movies.length; i++) { 
+    let newBox =  Number(movies[i].boxOffice.slice(1).split(",").join(""))
+   if ( newBox > highest) {
+  
+    title = movies[i].title 
+    }
+  }
+  return title
 }
 
 // Do not change anything below this line.
