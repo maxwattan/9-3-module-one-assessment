@@ -59,10 +59,20 @@ movieTitles.push(movies[i].title)
 // make error handle
 // make variable bucket
 // input array of movies
+// change string into number
 // output highest score of movies
-// return number
+// return number 
 function getHighestMetascore(movies) {
-
+  if (movies.length === 0){
+    return 0
+  }
+let highestMeta = 0
+  for (let i = 0; i < movies.length; i++){
+if (Number(movies[i].metascore) > highestMeta){
+  highestMeta = (Number(movies[i].metascore))
+}
+  }
+  return highestMeta
 }
 
 /**
@@ -76,6 +86,8 @@ function getHighestMetascore(movies) {
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
+
+
 function getAverageIMDBRating() {}
 
 /**
