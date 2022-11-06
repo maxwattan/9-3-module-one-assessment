@@ -29,20 +29,21 @@ const exampleMovies = require("./movies");
     ];
  */
 
-  // Make error handle
-  // Make Variable bucket
-  // Input movies titles
-  // Output movies titles
-  // Return array of strings of titles
+// Make error handle
+// Make Variable bucket
+// make loop
+// Input movies titles
+// Output movies titles
+// Return array of strings of titles
 function getAllMovieTitles(movies) {
-  if (movies.length === 0){
-    return []
+  if (movies.length === 0) {
+    return [];
   }
-let movieTitles = []
-  for (let i = 0; i < movies.length; i++){
-movieTitles.push(movies[i].title)
+  let movieTitles = [];
+  for (let i = 0; i < movies.length; i++) {
+    movieTitles.push(movies[i].title);
   }
-  return movieTitles
+  return movieTitles;
 }
 
 /**
@@ -58,21 +59,22 @@ movieTitles.push(movies[i].title)
  */
 // make error handle
 // make variable bucket
+// make loop
 // input array of movies
 // change string into number
-// output highest score of movies
-// return number 
+// compare and get highest score of movies
+// return number
 function getHighestMetascore(movies) {
-  if (movies.length === 0){
-    return 0
+  if (movies.length === 0) {
+    return 0;
   }
-let highestMeta = 0
-  for (let i = 0; i < movies.length; i++){
-if (Number(movies[i].metascore) > highestMeta){
-  highestMeta = (Number(movies[i].metascore))
-}
+  let highestMeta = 0;
+  for (let i = 0; i < movies.length; i++) {
+    if (Number(movies[i].metascore) > highestMeta) {
+      highestMeta = Number(movies[i].metascore);
+    }
   }
-  return highestMeta
+  return highestMeta;
 }
 
 /**
@@ -86,9 +88,25 @@ if (Number(movies[i].metascore) > highestMeta){
  *  getAverageIMDBRating(movies);
  *  //> 7.76
  */
+// make error handle
+// make variable bucket
+// input movies imdb ratings
+// make loop
+// change string to number
+// add ratings and divide by movie.length
+// return number imdb average
 
+function getAverageIMDBRating(movies) {
+  if (movies.length === 0) {
+    return 0;
+  }
+  let avgRating = 0;
 
-function getAverageIMDBRating() {}
+  for (let i = 0; i < movies.length; i++) {
+    avgRating += Number(movies[i].imdbRating) 
+  }
+  return avgRating/movies.length
+}
 
 /**
  * countByRating()
