@@ -281,7 +281,7 @@ function getBiggestBoxOfficeMovie(movies) {
   for (let i = 0; i < movies.length; i++) {
     let newBox = Number(movies[i].boxOffice.slice(1).split(",").join(""));
     if (newBox > highest) {
-      newBox = highest
+       highest = newBox 
       title = movies[i].title;
     }
   }
