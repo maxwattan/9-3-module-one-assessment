@@ -131,12 +131,12 @@ function countByRating(movies) {
     return {};
   }
   let ratingCount = {};
-  
+
   for (let i = 0; i < movies.length; i++) {
-    if (ratingCount[movies[i].rated] === undefined){
-  ratingCount[movies[i].rated] = 1 
-    }else{
-      ratingCount[movies[i].rated]++
+    if (ratingCount[movies[i].rated] === undefined) {
+      ratingCount[movies[i].rated] = 1;
+    } else {
+      ratingCount[movies[i].rated]++;
     }
   }
   return ratingCount;
@@ -202,18 +202,17 @@ function findById(movies, id) {
 // check if it matches
 // return if matches
 function filterByGenre(movies, genre) {
-  let matches = [] 
-  if (movies.length === 0){
-    return []
+  let matches = [];
+  if (movies.length === 0) {
+    return [];
   }
-  for (let i = 0; i < movies.length; i++){
-    if (movies[i].genre.toLowerCase().includes(genre.toLowerCase())){
-      matches.push(movies[i])
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].genre.toLowerCase().includes(genre.toLowerCase())) {
+      matches.push(movies[i]);
     }
   }
-  return matches
+  return matches;
 }
-
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -246,9 +245,9 @@ function filterByGenre(movies, genre) {
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
   result = [];
   for (let i = 0; i < movies.length; i++) {
-    const releasedYear = Number(movies[i].released.slice(7))
+    const releasedYear = Number(movies[i].released.slice(7));
     if (releasedYear <= year) {
-      result.push(movies[i])
+      result.push(movies[i]);
     }
   }
   return result;
@@ -265,21 +264,28 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
+
+// make error handle
+// make variable bucket
+// make loop
+// take out string, $, comma, and join
+// compare each one
+// return the winner
 function getBiggestBoxOfficeMovie(movies) {
-  if (movies.length === 0){
-    return null
+  if (movies.length === 0) {
+    return null;
   }
   let highest = 0;
-  let title = ""
+  let title = "";
 
-  for (let i = 0; i < movies.length; i++) { 
-    let newBox =  Number(movies[i].boxOffice.slice(1).split(",").join(""))
-   if ( newBox > highest) {
-  
-    title = movies[i].title 
+  for (let i = 0; i < movies.length; i++) {
+    let newBox = Number(movies[i].boxOffice.slice(1).split(",").join(""));
+    if (newBox > highest) {
+      newBox = highest
+      title = movies[i].title;
     }
   }
-  return title
+  return title;
 }
 
 // Do not change anything below this line.
