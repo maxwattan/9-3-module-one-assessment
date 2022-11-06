@@ -127,15 +127,15 @@ function getAverageIMDBRating(movies) {
 // add ratings(accumulate, value) into categories(key)
 // return object of key and value
 function countByRating(movies) {
-  if (movies.length === 0){
-    return {}
+  if (movies.length === 0) {
+    return {};
   }
-  let ratingCount = {}
-  let count = 0
-  for (let i = 0; i < movies.length; i++){
-   ratingCount += (movies[i].rated)
-      }
-    return {ratingCount}
+  let ratingCount = {};
+  let count = 0;
+  for (let i = 0; i < movies.length; i++) {
+    ratingCount += movies[i].rated;
+  }
+  return { ratingCount };
 }
 
 /**
@@ -162,14 +162,12 @@ function findById(movies, id) {
   if (movies.length === 0) {
     return null;
   }
-  let match = null
+  let match = null;
   for (let i = 0; i < movies.length; i++) {
     if (movies[i].imdbID === id) {
       match = movies[i];
     }
-
-    }
-  
+  }
   return match;
 }
 
@@ -193,7 +191,9 @@ function findById(movies, id) {
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+//
+function filterByGenre(movies, genre) {}
+
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -217,7 +217,22 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+// make empty array
+// input movies and year
+// make loop
+// make string into number
+// get and compare year
+// return result
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+  result = [];
+  for (let i = 0; i < movies.length; i++) {
+    const releasedYear = Number(movies[i].released.slice(7))
+    if (releasedYear <= year) {
+      result.push(movies[i])
+    }
+  }
+  return result;
+}
 
 /**
  * getBiggestBoxOfficeMovie()
@@ -230,7 +245,21 @@ function getAllMoviesReleasedAtOrBeforeYear() {}
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  if (movies.length === 0){
+    return null
+  }
+  let highest = 0;
+  let title = ""
+ 
+  for (let i = 0; i < movies.length; i++) { 
+     new =  Number(movies[i].boxOffice.slice(0).split(",").join(""))
+   if ( new > highest) {
+    title = movies[i].title 
+    }
+  }
+  return title
+}
 
 // Do not change anything below this line.
 module.exports = {
