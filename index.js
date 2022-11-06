@@ -131,11 +131,15 @@ function countByRating(movies) {
     return {};
   }
   let ratingCount = {};
-  let count = 0;
+  
   for (let i = 0; i < movies.length; i++) {
-    ratingCount += movies[i].rated;
+    if (ratingCount[movies[i].rated] === undefined){
+  ratingCount[movies[i].rated] = 1 
+    }else{
+      ratingCount[movies[i].rated]++
+    }
   }
-  return { ratingCount };
+  return ratingCount;
 }
 
 /**
@@ -192,7 +196,15 @@ function findById(movies, id) {
  *  //> []
  */
 //
-function filterByGenre(movies, genre) {}
+function filterByGenre(movies, genre) {
+  let matches = [] 
+  for (let i = 0; i < movies.length; i++){
+    if (movies[i].genre === genre){
+      matches.push()
+    }
+  }
+  return matches
+}
 
 
 /**
@@ -249,16 +261,16 @@ function getBiggestBoxOfficeMovie(movies) {
   if (movies.length === 0){
     return null
   }
-  let highest = 0;
-  let title = ""
- 
-  for (let i = 0; i < movies.length; i++) { 
-     new =  Number(movies[i].boxOffice.slice(0).split(",").join(""))
-   if ( new > highest) {
-    title = movies[i].title 
-    }
-  }
-  return title
+  // let highest = 0;
+  // let title = ""
+  // let new = 
+  // for (let i = 0; i < movies.length; i++) { 
+  //    new =  Number(movies[i].boxOffice.slice(0).split(",").join(""))
+  //  if ( new > highest) {
+  //   title = movies[i].title 
+  //   }
+  // }
+  // return title
 }
 
 // Do not change anything below this line.

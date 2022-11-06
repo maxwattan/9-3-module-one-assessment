@@ -13,7 +13,7 @@ const movies = [
     poster:
       "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@._V1_SX300.jpg",
     production: "Pixar Animation Studios",
-    rated: "G",
+    rated: "G", 
     ratings: [
       {
         source: "Internet Movie Database",
